@@ -1,12 +1,207 @@
 @charset "UTF-8";
 
 :root {
-    
+
+    @import url('https://fonts.googleapis.com/css2?family=Allura&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Orbitron:wght@400..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Passion+One:wght@400;700;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sriracha&display=swap');
+
+    @import url('https://fonts.googleapis.com/css2?family=Allura&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Orbitron:wght@400..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Passion+One:wght@400;700;900&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sriracha&display=swap');
+
+    --font-titulo: "Playfair Display SC", serif;
+    --font-texto: "Poppins", sans-serif;
+
+    --color-fundo-login: #080808;
+    --color-principla-login: #FF2D95;
+    --color-secundario-login: #FF70B8;
+    --color-texto-login: #FFFFFF;
+    --color-cinza-login: #181818;
+
+    --Fundo-site: #FFF5F7;
+    --Rosa-principa-site: #E91E63;
+    --Rosa-claro-site: #F8BBD0;
+    --Texto-site: #3A2028;
+    --Branco-site: #FFFFFF;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
 .escondido {
     display: none;
 }
 
+#telasenha {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    background-color: var(--color-fundo-login);
+    
+}
+
+.titulo {
+    text-align: center;
+    color: var(--color-principla-login);
+    height: 60vh;
+    width: 70vw;
+    box-shadow: 0px 0px 10px var(--color-secundario-login);
+    padding: 10px;
+    border-radius: 10px;
+
+}
+
+.titulo:hover {
+    box-shadow: 1px 1px 10px 10px var(--color-secundario-login);
+    transition: 1s;
+}
+
+.titulo h1 {
+    margin-top: 10px;
+    font-size: 1.8rem;
+    padding: 5px;
+    padding-bottom: 10px;
+    font-family: var(--font-titulo);
+    text-align: justify;
+}
+
+p {
+    margin-bottom: 10px;
+    font-family: var(--font-texto);
+    font-size: 1rem;
+    text-align: justify;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+label {
+    color: white;
+    font-weight: bold;
+    text-align: left;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #374151;
+    border-radius: 8px;
+    background-color: #050816;
+    color: rgba(255, 255, 255, 0.63);
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--Rosa-principa-site);
+}
+
+
+button {
+    margin-top: 10px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-secundario-login);
+    color: #050816;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+    color: #08080896;
+}
+
+.subtitulo {
+    color: var(--Branco-site);
+    margin-top: 20px;
+    text-align: center;
+}
+
+/*TELA CERTA*/
+
+#telacerta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, var(--Rosa-principa-site), var(--color-secundario-login));
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;
+}
+
+#telacerta h1 {
+    font-family: var(--font-titulo);
+    font-size: 3rem;
+    margin-bottom: 20px;
+  
+}
+
+#telacerta button {
+  
+    margin-top: 15px;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color-secundario-login);
+    color: #050816;
+    font-weight: bold;
+    cursor: pointer;
+    width: 40vw;
+}
+
+/*GALERIA*/
+
 img {
-    width: 30vw;
+    width: 20VW;
+}
+
+/* Estilo da área da galeria */
+#galeria {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-fundo-login);
+    overflow: hidden; /* Esconde o que passar da tela */
+    padding: 20px;
+}
+
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    max-width: 80vw;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* Efeito de rotação e zoom suave nas imagens da galeria */
+#galeria img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid var(--Rosa-principa-site);
+    transition: transform 0.5s ease, filter 0.3s;
+    /* Rotação inicial leve e aleatória ou padrão */
+    transform: rotate(-3deg);
+}
+
+#galeria img:hover {
+    transform: scale(1.15) rotate(0deg); /* Endireita e aumenta quando o mouse passa por cima */
+    filter: brightness(1.2);
+    box-shadow: 0px 0px 15px var(--Rosa-principa-site);
+    z-index: 10;
 }
