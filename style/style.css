@@ -1,10 +1,12 @@
 @charset "UTF-8";
 
+:root {
+    
+}
 .escondido {
     display: none;
 }
 
 img {
     width: 30vw;
-    
 }
