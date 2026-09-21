@@ -2,31 +2,62 @@
 
 let form = document.getElementById("formulario")
 let telaCerta = document.getElementById("telacerta")
-let con3 = document.getElementById("continuarPreparacao")
 let con2 = document.getElementById("continuargaleria")
 let con1 = document.getElementById("continuar")
 let galeria = document.getElementById("galeria")
 let pre = document.getElementById("preparacao")
 let video = document.getElementById("video")
 let fim = document.getElementById("fim")
+let reset = document.getElementById("terminou")
+let telaSenha = document.getElementById("telasenha")
+let tentativas = 0
+let erros = document.getElementById("contadorErros")
+
 
 form.addEventListener("submit", function (event) {
     event.preventDefault()
 
     let senha = document.getElementById("senha").value
-    let telaSenha = document.getElementById("telasenha")
-    let telaErrada = document.getElementById("telaerrada")
-    let telaCerta = document.getElementById("telacerta")
 
-
-    if (senha == "21") {
+    if (senha == "06/08/2026") {
 
         telaSenha.classList.add("escondido")
         telaCerta.classList.remove("escondido")
 
+        if (tentativas <= 1) {
+
+            erros.innerText = `Você realmente lembra! precisou de          ${tentativas}  tentativa pra acertar`
+
+        } else if (tentativas <= 2) {
+
+            erros.innerText = `OIAAAAAAA! precisou de ${tentativas}  tentativas pra acertar`
+
+        } else {
+            erros.innerText = `Quase que não lembra precisou de  ${tentativas}  tentativas pra acertar KKKKKKKKKK`
+        }
+
     } else {
-        telaSenha.classList.add("escondido")
-        telaErrada.classList.remove("escondido")
+
+        tentativas++
+
+        if (tentativas == 1) {
+            alert("SENHA INCORRETA!")
+
+        } else if (tentativas == 2) {
+            alert("DICA 3: você já deveria saber essa...")
+
+        } else if (tentativas == 3) {
+            alert("DICA 2: foi uma data muito especial")
+
+        } else if (tentativas == 4) {
+            alert("DICA 1: pana-pana-pana    pana-pana-pana hei hei hei")
+
+        } else if (tentativas == 5) {
+            alert("SITUAÇÃO TA COMPLICADA")
+
+        } else {
+            alert("Essa é a ultima: o dia que marcou a nossa reconciliação")
+        }
     }
 
 
@@ -48,9 +79,14 @@ con2.addEventListener("click", function () {
 
 video.addEventListener("ended", function () {
 
-
     pre.classList.add("escondido")
     fim.classList.remove("escondido")
 
+})
+
+reset.addEventListener("click", function () {
+
+    fim.classList.add("escondido")
+    telaSenha.classList.remove("escondido")
 })
 
