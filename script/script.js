@@ -19,14 +19,14 @@ form.addEventListener("submit", function (event) {
 
     let senha = document.getElementById("senha").value
 
-    if (senha == "06/08/2026") {
+    if (senha == "06082026") {
 
         telaSenha.classList.add("escondido")
         telaCerta.classList.remove("escondido")
 
         if (tentativas <= 1) {
 
-            erros.innerText = `Você realmente lembra! precisou de          ${tentativas}  tentativa pra acertar`
+            erros.innerText = `Você realmente lembra! precisou de  ${tentativas}  tentativa pra acertar`
 
         } else if (tentativas <= 2) {
 
@@ -90,3 +90,39 @@ reset.addEventListener("click", function () {
     telaSenha.classList.remove("escondido")
 })
 
+let fotos = document.querySelectorAll("#galeria img")
+
+let angulo = 0
+
+function movimentarFotos() {
+    let galeria = document.querySelector(".galeria")
+
+    let centroX = galeria.clientWidth / 2
+    let centroY = galeria.clientHeight / 2
+
+    let raioX = Math.min(galeria.clientWidth * 0.38, 420)
+    let raioY = Math.min(galeria.clientHeight * 0.38, 260)
+
+    fotos.forEach(function (foto, indice) {
+
+        let quantidade = fotos.length
+
+        let posicao = angulo + (indice * (360 / quantidade))
+
+        let radianos = posicao * Math.PI / 180
+
+        let x = centroX + Math.cos(radianos) * raioX
+        let y = centroY + Math.sin(radianos) * raioY
+
+        foto.style.left = `${x}px`
+        foto.style.top = `${y}px`
+
+        foto.style.transform = "translate(-50%, -50%)"
+    })
+
+    angulo += 0.15
+
+    requestAnimationFrame(movimentarFotos)
+}
+
+movimentarFotos()
